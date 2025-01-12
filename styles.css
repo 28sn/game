@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.score {
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+.cell {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.cell img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.status {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.winner-display {
+  display: none;
+  text-align: center;
+}
+
+.winner-image {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.winner-message {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.reset-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background: #ff6f61;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: #ff4a3d;
+  transform: scale(1.05);
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(-10deg);
+  }
+}
+
+.winner-image.celebrate {
+  animation: celebrate 1s ease-in-out infinite alternate;
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .board {
+    max-width: 90%;
+    gap: 5px;
+  }
+
+  .cell {
+    border-width: 1px;
+  }
+
+  .winner-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .winner-message {
+    font-size: 1.2rem;
+  }
+}
